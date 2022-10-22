@@ -1,0 +1,2 @@
+1 verify node -v (if nodejs is installed)
+2 install the server with the command: npm install -g json-server
