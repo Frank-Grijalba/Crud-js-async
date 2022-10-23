@@ -1,9 +1,14 @@
 {
   "perfil": [
     {
-      "nombre": "Harland Lohora",
-      "email": "harland@alura.com",
+      "nombre": "Frank Grijalba",
+      "email": "fjgrijalba@gmail.com",
       "id": 1
+    },
+    {
+      "nombre": "Luz A. Gonzalez",
+      "email": "angelitamosq83@gmail.com",
+      "id": 2
     }
   ]
 }
