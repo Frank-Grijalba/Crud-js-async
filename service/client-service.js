@@ -29,7 +29,7 @@ const crearNuevaLinea = (nombre, email) => {
 
 const tabla = document.querySelector("[data-table]");
 
-const http = new XMLHttpRequest();
+
 
 //name_from_variable.open  receive 2 parameters (method, url)
 // CRUD - Http methods
@@ -38,16 +38,35 @@ const http = new XMLHttpRequest();
 // Update - PUT
 // Delete - DELETE
 
-http.open('GET','http://localhost:3000/perfil');
-
-http.send();
-
-http.onload = () => {
-    const data =  JSON.parse(http.response);
-    data.forEach( perfil => {
-        const nuevaLinea = crearNuevaLinea(perfil.nombre, perfil.email);
-        tabla.appendChild(nuevaLinea);
-    });
-
+const listaCLientes = () => {
+    const promise = new Promise( 
+        (resolve, reject) => {
+        const http = new XMLHttpRequest();
+        http.open('GET','http://localhost:3000/perfil');
+        http.send();
+        http.onload = () => {
+            const response =  JSON.parse(http.response);
+            if(http.status >= 400){
+                reject(response);
+            }else{
+                resolve(response);
+            }
+        }   
+        }
+    )
+    return promise;
 }
+
+listaCLientes().then(
+    (data) => {
+    data.forEach(
+        perfil => {
+            const nuevaLinea = crearNuevaLinea(perfil.nombre, perfil.email);
+            tabla.appendChild(nuevaLinea);
+        }
+    );
+    }
+).catch(
+    (error) => alert("Ocurrió un error")
+    );
 
