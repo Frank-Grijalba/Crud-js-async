@@ -60,7 +60,7 @@
               name="email"
               id="email"
               class="input"
-              type="text"
+              type="mailto"
               placeholder="email"
               required
               data-email
@@ -68,9 +68,13 @@
             <label class="input-label" for="email">Email</label>
             <span class="input-menssage-error">Este campo es requerido</span>
           </div>
-          <button type="submit" class="button">Registrar</button>
+          <button type="submit" class="button">Registrarse</button>
         </form>
       </section>
     </main>
+    <!-- uuid cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js" integrity="sha512-UNM1njAgOFUa74Z0bADwAq8gbTcqZC8Ej4xPSzpnh0l6KMevwvkBvbldF9uR++qKeJ+MOZHRjV1HZjoRvjDfNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- register controller -->
+    <script type="module" src="../controllers/registro.controller.js"></script>
   </body>
 </html>
